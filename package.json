@@ -18,7 +18,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "linter": "eslint ."
+    "linter": "eslint . --quiet",
+    "linter-with-warnings": "eslint .",
+    "ci": "npm run linter"
   },
   "devDependencies": {
     "eslint": "^3.16.1",
