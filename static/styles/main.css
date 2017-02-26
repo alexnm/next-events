@@ -1,0 +1,122 @@
+.above-the-fold {
+    background-image: url( "/static/images/cover.jpg" );
+    background-size: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.above-the-fold .centered-text {
+    position: absolute;
+    height: 200px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.above-the-fold h1 {
+    font-size: 3rem;
+    margin: 30px;
+}
+
+.button {
+    margin: 20px;
+    color: #eee;
+    background-color: transparent;
+    border: 3px solid #eee;
+    padding: 10px 30px;
+    font-size: 2rem;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #1abc9c;
+    color: #333;
+}
+
+.overlay {
+    background: -webkit-radial-gradient(circle, rgba(0,0,0,0.5), #2F2727);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.container {
+    width: 1024px;
+    margin: auto;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.navlink {
+    padding: 20px 30px;
+    color: #eee;
+    text-decoration: none;
+    background-color: #333;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.navlink:hover {
+    background-color: #1abc9c;
+    color: #333;
+}
+
+.section {
+    padding: 20px;
+}
+
+.section.dark {
+    background-color: #333;
+    color: #eee;
+}
+
+.section.color {
+    background-color: #1abc9c;
+    color: #eee;
+}
+
+.section.light {
+    background-color: #eee;
+    color: #333;
+}
+
+.speaker-pic {
+    display: inline-block;
+    width: 25%;
+}
+
+.speaker-pic .rounded {
+    border-radius: 200px;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.speaker-pic img {
+    height: 200px;
+    width: 200px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+p {
+    font-size: 1.2rem;
+}
