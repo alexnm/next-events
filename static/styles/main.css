@@ -1,6 +1,8 @@
 .above-the-fold {
     background-image: url( "/static/images/cover.jpg" );
     background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     position: relative;
 }
@@ -16,25 +18,45 @@
 }
 
 .above-the-fold h1 {
+    color: #f1c40f;
     font-size: 3rem;
     margin: 30px;
 }
 
 .button {
     margin: 20px;
-    color: #eee;
-    background-color: transparent;
-    border: 3px solid #eee;
+    border-style: solid;
+    border-width: 3px;
     padding: 10px 30px;
-    font-size: 2rem;
-    transition: all 0.5s ease-in-out;
+    font-size: 1.5rem;
+    transition: all 0.35s ease-in-out;
     cursor: pointer;
 }
 
-.button:hover {
-    background-color: #1abc9c;
-    color: #333;
+.button.light {
+    background-color: transparent;
+    color: #eee;
+    border-color: #eee;
 }
+
+.button.light:hover {
+    background-color: #f1c40f;
+    color: #333;
+    border-color: #f1c40f;
+}
+
+.button.dark {
+    background-color: transparent;
+    color: #333;
+    border-color: #333;
+}
+
+.button.dark:hover {
+    background-color: #333;
+    color: #eee;
+    border-color: #333;
+}
+
 
 .overlay {
     background: -webkit-radial-gradient(circle, rgba(0,0,0,0.5), #2F2727);
@@ -61,12 +83,17 @@
     color: #eee;
     text-decoration: none;
     background-color: #333;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.7s ease-out;
     cursor: pointer;
 }
 
+.navlink.highlight {
+    color: #f1c40f;
+}
+
 .navlink:hover {
-    background-color: #1abc9c;
+    background-color: #f1c40f;
+    transition: all 0.35s ease-out;
     color: #333;
 }
 
@@ -80,8 +107,8 @@
 }
 
 .section.color {
-    background-color: #1abc9c;
-    color: #eee;
+    background-color: #f1c40f;
+    color: #333;
 }
 
 .section.light {
@@ -118,5 +145,6 @@ h1, h2, h3, h4 {
 }
 
 p {
+    font-weight: 300;
     font-size: 1.2rem;
 }

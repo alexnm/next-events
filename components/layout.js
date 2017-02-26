@@ -8,17 +8,18 @@ const Layout = ( { children, title = "Next Conf" } ) => (
             <title>{ title }</title>
             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
             <meta charSet="utf-8" />
-            <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400" rel="stylesheet" />
             <link href="/static/styles/main.css" rel="stylesheet" />
         </Head>
         <header className="header section dark">
             <nav>
-                <Link href="/"><a className="navlink">Next Conf</a></Link>
-                <Link href="/#"><a className="navlink" >About</a></Link>
-                <Link href="/#"><a className="navlink">Speakers</a></Link>
-                <Link href="/#"><a className="navlink">Sponsors</a></Link>
-                <Link href="/#"><a className="navlink">Register</a></Link>
-                <Link href="/#"><a className="navlink">Contact</a></Link>
+                <a href="#home" className="navlink">Next Conf</a>
+                <a href="#about" className="navlink">About</a>
+                <a href="#speakers" className="navlink">Speakers</a>
+                <a href="#agenda" className="navlink">Agenda</a>
+                <a href="#sponsors" className="navlink">Sponsors</a>
+                <a href="/" className="navlink highlight">Register</a>
+                <a href="/" className="navlink">Contact</a>
             </nav>
         </header>
 
