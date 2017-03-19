@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Layout from "../components/layout";
+import Banner from "../components/banner";
 import SpeakerSpotlight from "../components/speakerSpotlight";
 import SponsorSpotLight from "../components/sponsorSpotlight";
 import speakers from "../config/speakers";
 import sponsors from "../config/sponsors";
-import Dictionary from "../config/dictionary";
 
 const Home = ( ) => {
     const speakerSpotlights = speakers.slice( 0, 8 ).map(
@@ -18,14 +18,7 @@ const Home = ( ) => {
 
     return (
         <Layout>
-            <div className="above-the-fold" id="home">
-                <div className="overlay" />
-                <div className="centered-text">
-                    <h1>{ Dictionary.event.name }</h1>
-                    <h2>{ Dictionary.event.period }</h2>
-                    <p>{ Dictionary.event.place }</p>
-                </div>
-            </div>
+            <Banner />
             <div className="section light">
                 <div className="container">
                     <p>Curabitur vestibulum ante maximus maximus consectetur. Morbi elementum nisl nec risus varius volutpat. Sed vehicula, odio at gravida feugiat, urna lectus cursus metus, in molestie lorem purus ut risus. In ac volutpat metus, id iaculis est. Phasellus in nisi pharetra, ultricies est non, accumsan mauris. Suspendisse vel consequat quam. Aenean interdum lectus eget magna pellentesque, at posuere dui egestas. Morbi at lectus nulla. Nunc tristique, leo eget tincidunt iaculis, turpis nulla semper dolor, a molestie justo lacus id nulla.</p>

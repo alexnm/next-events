@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
+import Router from "next/router";
 
 const Layout = ( { children, title = "Next Conf" } ) => (
     <div>
@@ -12,13 +14,18 @@ const Layout = ( { children, title = "Next Conf" } ) => (
         </Head>
         <header className="header section dark">
             <nav>
-                <a href="/" className="navlink">Next Conf</a>
-                <a href="/about" className="navlink">About</a>
-                <a href="/speakers" className="navlink">Speakers</a>
-                <a href="/agenda" className="navlink">Agenda</a>
-                <a href="/sponsors-and-partners" className="navlink">Sponsors</a>
-                <a href="/" className="navlink highlight">Register</a>
-                <a href="/" className="navlink">Contact</a>
+                <Link href="/"><a className="navlink">Next Conf</a></Link>
+                <Link href="/about"><a className="navlink">About</a></Link>
+                <Link prefetch href="/speakers"><a className="navlink">Speakers</a></Link>
+                <Link href="/agenda"><a className="navlink">Agenda</a></Link>
+                <Link href="/sponsors-and-partners">
+                    <a
+                        className="navlink"
+                        onMouseEnter={ ( ) => Router.prefetch( "/sponsors-and-partners" ) }
+                    >Sponsors and Partners</a>
+                </Link>
+                <Link href="/"><a className="navlink highlight">Register</a></Link>
+                <Link href="/"><a className="navlink">Contact</a></Link>
             </nav>
         </header>
 
@@ -33,7 +40,7 @@ const Layout = ( { children, title = "Next Conf" } ) => (
 
 const { string, any } = React.PropTypes;
 Layout.propTypes = {
-    title: string.isRequired,
+    title: string, // eslint-disable-line react/require-default-props
     children: any.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
