@@ -1,12 +1,14 @@
 import React from "react";
+import Link from "next/link";
 import Layout from "../components/layout";
 import SpeakerSpotlight from "../components/speakerSpotlight";
 import SponsorSpotLight from "../components/sponsorSpotlight";
 import speakers from "../config/speakers";
 import sponsors from "../config/sponsors";
+import Dictionary from "../config/dictionary";
 
 const Home = ( ) => {
-    const speakerSpotlights = speakers.map(
+    const speakerSpotlights = speakers.slice( 0, 8 ).map(
         ( speaker ) => <SpeakerSpotlight details={ speaker } key={ speaker.id } />,
     );
 
@@ -16,12 +18,12 @@ const Home = ( ) => {
 
     return (
         <Layout>
-            <div className="above-the-fold section dark" id="home">
+            <div className="above-the-fold" id="home">
                 <div className="overlay" />
                 <div className="centered-text">
-                    <h1>Next Conf</h1>
-                    <h2>23-25 July 2017</h2>
-                    <p>Cluj-Napoca, Romania</p>
+                    <h1>{ Dictionary.event.name }</h1>
+                    <h2>{ Dictionary.event.period }</h2>
+                    <p>{ Dictionary.event.place }</p>
                 </div>
             </div>
             <div className="section light">
@@ -44,7 +46,9 @@ const Home = ( ) => {
                 <p>Here they are</p>
                 <div>
                     { speakerSpotlights }
-                    <button className="button dark">See More</button>
+                    <Link href="/speakers">
+                        <button className="button dark">See More</button>
+                    </Link>
                 </div>
             </div>
             <div className="section light" id="agenda">

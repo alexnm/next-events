@@ -1,3 +1,9 @@
 {
-    "extends": "fortech"
+    "extends": "fortech",
+    "rules": {
+        "react/jsx-curly-spacing": [
+            2,
+            "always"
+        ]
+    }
 }

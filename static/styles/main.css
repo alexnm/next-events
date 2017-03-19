@@ -5,6 +5,7 @@
     background-size: cover;
     height: 100vh;
     position: relative;
+    color: #eee;
 }
 
 .above-the-fold .centered-text {
@@ -76,6 +77,10 @@
     position: fixed;
     width: 100%;
     z-index: 10;
+}
+
+.main {
+    padding-top: 59px;
 }
 
 .navlink {

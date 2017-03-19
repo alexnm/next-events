@@ -12,11 +12,11 @@ const Layout = ( { children, title = "Next Conf" } ) => (
         </Head>
         <header className="header section dark">
             <nav>
-                <a href="#home" className="navlink">Next Conf</a>
-                <a href="#about" className="navlink">About</a>
-                <a href="#speakers" className="navlink">Speakers</a>
-                <a href="#agenda" className="navlink">Agenda</a>
-                <a href="#sponsors" className="navlink">Sponsors</a>
+                <a href="/" className="navlink">Next Conf</a>
+                <a href="/about" className="navlink">About</a>
+                <a href="/speakers" className="navlink">Speakers</a>
+                <a href="/agenda" className="navlink">Agenda</a>
+                <a href="/sponsors-and-partners" className="navlink">Sponsors</a>
                 <a href="/" className="navlink highlight">Register</a>
                 <a href="/" className="navlink">Contact</a>
             </nav>
