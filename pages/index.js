@@ -1,18 +1,17 @@
 import React from "react";
+import fetch from "isomorphic-fetch";
 import Link from "next/link";
 import Layout from "../components/layout";
 import Banner from "../components/banner";
 import SpeakerSpotlight from "../components/speakerSpotlight";
 import SponsorSpotLight from "../components/sponsorSpotlight";
-import speakers from "../config/speakers";
-import sponsors from "../config/sponsors";
 
-const Home = ( ) => {
-    const speakerSpotlights = speakers.slice( 0, 8 ).map(
+const Home = ( props ) => {
+    const speakerSpotlights = props.speakers.slice( 0, 8 ).map(
         ( speaker ) => <SpeakerSpotlight details={ speaker } key={ speaker.id } />,
     );
 
-    const sponsorSpotlights = sponsors.map(
+    const sponsorSpotlights = props.sponsors.map(
         ( sponsor ) => <SponsorSpotLight details={ sponsor } key={ sponsor.id } />,
     );
 
@@ -70,6 +69,19 @@ const Home = ( ) => {
             </div>
         </Layout>
     );
+};
+
+Home.getInitialProps = async function() {
+    const speakersResponse = await fetch( "http://localhost:3000/api/speakers" );
+    const speakers = await speakersResponse.json();
+
+    const sponsorsResponse = await fetch( "http://localhost:3000/api/sponsors" );
+    const sponsors = await sponsorsResponse.json();
+
+    return {
+        speakers,
+        sponsors,
+    };
 };
 
 export default Home;

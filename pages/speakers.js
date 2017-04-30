@@ -1,10 +1,10 @@
 import React from "react";
+import fetch from "isomorphic-fetch";
 import Layout from "../components/layout";
 import SpeakerSpotlight from "../components/speakerSpotlight";
-import speakers from "../config/speakers";
 
-const Speakers = ( ) => {
-    const speakerSpotlights = speakers.map(
+const Speakers = ( props ) => {
+    const speakerSpotlights = props.speakers.map(
         ( speaker ) => <SpeakerSpotlight details={ speaker } key={ speaker.id } />,
     );
 
@@ -17,6 +17,17 @@ const Speakers = ( ) => {
             </div>
         </Layout>
     );
+};
+
+Speakers.getInitialProps = async function() {
+    const speakersResponse = await fetch( "http://localhost:3000/api/speakers" );
+    const speakers = await speakersResponse.json();
+
+    console.log( "speakers fetched!!!" );
+
+    return {
+        speakers,
+    };
 };
 
 export default Speakers;

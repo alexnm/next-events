@@ -22,7 +22,7 @@ const Layout = ( { children, title = "JSHeroes" } ) => (
                 <Link href="/sponsors-and-partners">
                     <a
                         className="navlink"
-                        onMouseEnter={ ( ) => Router.prefetch( "/sponsors-and-partners" ) }
+                        onMouseEnter={ ( ) => { console.log( "prefetch" ); Router.prefetch( "/sponsors-and-partners" ); } }
                     >Sponsors and Partners</a>
                 </Link>
                 <Link href="/"><a className="navlink highlight">Register</a></Link>
