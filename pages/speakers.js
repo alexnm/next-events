@@ -19,11 +19,10 @@ const Speakers = ( props ) => {
     );
 };
 
-Speakers.getInitialProps = async function() {
-    const speakersResponse = await fetch( "http://localhost:3000/api/speakers" );
+Speakers.getInitialProps = async function( { req } ) {
+    const baseUrl = req ? `${ req.protocol }://${ req.headers.host }` : "";
+    const speakersResponse = await fetch( `${ baseUrl }/api/speakers` );
     const speakers = await speakersResponse.json();
-
-    console.log( "speakers fetched!!!" );
 
     return {
         speakers,

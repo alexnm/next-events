@@ -71,11 +71,12 @@ const Home = ( props ) => {
     );
 };
 
-Home.getInitialProps = async function() {
-    const speakersResponse = await fetch( "http://localhost:3000/api/speakers" );
+Home.getInitialProps = async function( { req } ) {
+    const baseUrl = req ? `${ req.protocol }://${ req.headers.host }` : "";
+    const speakersResponse = await fetch( `${ baseUrl }/api/speakers` );
     const speakers = await speakersResponse.json();
 
-    const sponsorsResponse = await fetch( "http://localhost:3000/api/sponsors" );
+    const sponsorsResponse = await fetch( `${ baseUrl }/api/sponsors` );
     const sponsors = await sponsorsResponse.json();
 
     return {
