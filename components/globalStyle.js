@@ -51,6 +51,25 @@ export default ( ) => (
             padding-top: 59px;
         }
 
+        .navlink {
+            padding: 20px 30px;
+            color: #eee;
+            text-decoration: none;
+            background-color: #333;
+            transition: all 0.7s ease-out;
+            cursor: pointer;
+        }
+
+        .navlink.highlight {
+            color: #f1c40f;
+        }
+
+        .navlink:hover {
+            background-color: #f1c40f;
+            transition: all 0.35s ease-out;
+            color: #333;
+        }
+
         .section {
             padding: 20px;
         }

@@ -4,10 +4,10 @@ import Link from "next/link";
 import Router from "next/router";
 import GlobalStyle from "./globalStyle";
 
-const PrefetchOnMouseEnter = ( { href, title } ) => (
+const PrefetchOnMouseEnter = ( { href, title, className } ) => (
     <Link href={ href }>
         <a
-            className="navlink"
+            className={ className }
             onMouseEnter={ ( ) => Router.prefetch( href ) }
         >{ title }</a>
     </Link>
@@ -16,6 +16,7 @@ const PrefetchOnMouseEnter = ( { href, title } ) => (
 PrefetchOnMouseEnter.propTypes = {
     href: React.PropTypes.string,
     title: React.PropTypes.string,
+    className: React.PropTypes.string,
 };
 
 const Layout = ( { children, title = "JSHeroes" } ) => (
@@ -30,34 +31,14 @@ const Layout = ( { children, title = "JSHeroes" } ) => (
         <header className="header section dark">
             <nav>
                 <Link href="/"><a className="navlink">JSHeroes</a></Link>
-                <PrefetchOnMouseEnter href="/about" title="About" />
+                <PrefetchOnMouseEnter className="navlink" href="/about" title="About" />
                 <Link prefetch href="/speakers"><a className="navlink">Speakers</a></Link>
-                <PrefetchOnMouseEnter href="/agenda" title="Agenda" />
-                <PrefetchOnMouseEnter href="/sponsors-and-partners" title="Sponsors and Partners" />
+                <PrefetchOnMouseEnter className="navlink" href="/agenda" title="Agenda" />
+                <PrefetchOnMouseEnter className="navlink" href="/sponsors-and-partners" title="Sponsors and Partners" />
                 <Link href="/"><a className="navlink highlight">Register</a></Link>
                 <Link href="/"><a className="navlink">Contact</a></Link>
             </nav>
             <GlobalStyle />
-            <style jsx>{ `
-                .navlink {
-                    padding: 20px 30px;
-                    color: #eee;
-                    text-decoration: none;
-                    background-color: #333;
-                    transition: all 0.7s ease-out;
-                    cursor: pointer;
-                }
-
-                .navlink.highlight {
-                    color: #f1c40f;
-                }
-
-                .navlink:hover {
-                    background-color: #f1c40f;
-                    transition: all 0.35s ease-out;
-                    color: #333;
-                }
-            ` }</style>
         </header>
 
         { children }
