@@ -85,4 +85,9 @@ Home.getInitialProps = async function( { req } ) {
     };
 };
 
+Home.propTypes = {
+    speakers: React.PropTypes.array,
+    sponsors: React.PropTypes.array,
+};
+
 export default Home;
