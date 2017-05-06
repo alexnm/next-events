@@ -29,4 +29,8 @@ Speakers.getInitialProps = async function( { req } ) {
     };
 };
 
+Speakers.propTypes = {
+    speakers: React.PropTypes.array,
+};
+
 export default Speakers;

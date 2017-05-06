@@ -4,6 +4,20 @@ import Link from "next/link";
 import Router from "next/router";
 import GlobalStyle from "./globalStyle";
 
+const PrefetchOnMouseEnter = ( { href, title } ) => (
+    <Link href={ href }>
+        <a
+            className="navlink"
+            onMouseEnter={ ( ) => Router.prefetch( href ) }
+        >{ title }</a>
+    </Link>
+);
+
+PrefetchOnMouseEnter.propTypes = {
+    href: React.PropTypes.string,
+    title: React.PropTypes.string,
+};
+
 const Layout = ( { children, title = "JSHeroes" } ) => (
     <div>
         <Head>
@@ -16,15 +30,10 @@ const Layout = ( { children, title = "JSHeroes" } ) => (
         <header className="header section dark">
             <nav>
                 <Link href="/"><a className="navlink">JSHeroes</a></Link>
-                <Link href="/about"><a className="navlink">About</a></Link>
+                <PrefetchOnMouseEnter href="/about" title="About" />
                 <Link prefetch href="/speakers"><a className="navlink">Speakers</a></Link>
-                <Link href="/agenda"><a className="navlink">Agenda</a></Link>
-                <Link href="/sponsors-and-partners">
-                    <a
-                        className="navlink"
-                        onMouseEnter={ ( ) => Router.prefetch( "/sponsors-and-partners" ) }
-                    >Sponsors and Partners</a>
-                </Link>
+                <PrefetchOnMouseEnter href="/agenda" title="Agenda" />
+                <PrefetchOnMouseEnter href="/sponsors-and-partners" title="Sponsors and Partners" />
                 <Link href="/"><a className="navlink highlight">Register</a></Link>
                 <Link href="/"><a className="navlink">Contact</a></Link>
             </nav>
